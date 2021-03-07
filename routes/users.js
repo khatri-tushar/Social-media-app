@@ -5,11 +5,15 @@ const router = express.Router();
 const userController = require('../controllers/users_controller');
 const postsController = require('../controllers/posts_controller')
 
-router.get('/profile', userController.profile)
-router.get('/friends', userController.friends)
-router.get('/posts', postsController.posts)
-
 console.log('User Router working')
+
+router.get('/profile', userController.profile);
+router.get('/friends', userController.friends);
+router.get('/posts', postsController.posts);
+router.get('/sign-in', userController.signIn);
+router.get('/sign-up', userController.signUp);
+
+router.post('/create', userController.create);
 
 module.exports = router; //no the index.js router and this router is not the same.
 

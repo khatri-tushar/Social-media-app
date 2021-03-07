@@ -1,5 +1,10 @@
 //controller: a group of actions
 
 module.exports.home = function(req, res) {
-    return res.end('<h1>Express is up</h1>')
+    res.cookie("user_id", "1");
+    console.log(req.cookies);
+
+    return res.render('home', {
+        title: "home"
+    })
 }
