@@ -13,4 +13,6 @@ db.on('error', console.error.bind(console, 'error connecting to db'));
 //if it is running then print the message
 db.once('open', function() {
     console.log('Successfully connected to the DB')
-})
+});
+
+module.exports = db

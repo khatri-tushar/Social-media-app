@@ -1,7 +1,7 @@
 const User = require('../models/user')
 
 module.exports.profile = function(req, res) {
-    res.render("profile", {
+    res.render("user-profile", {
         title: "Profile"
     });
 }
@@ -13,12 +13,20 @@ module.exports.friends = function(req, res) {
 
 //render the signUp page
 module.exports.signUp = function(req, res) {
+        if (req.isAuthenticated()) {
+            return res.redirect('/users/user-profile');
+        }
+
         return res.render("user-signup", {
             title: "Khapitar Club | SignUp"
         })
     }
     //render the signIn page
 module.exports.signIn = function(req, res) {
+    if (req.isAuthenticated()) {
+        return res.redirect('/users/user-profile');
+    }
+
     return res.render("user-signin", {
         title: "Khapitar Club | SignIn"
     })
@@ -48,4 +56,11 @@ module.exports.create = function(req, res) {
 
 module.exports.createSession = function(req, res) {
 
+    return res.redirect('/')
+}
+
+
+module.exports.deleteSession = function(req, res) {
+    req.logout();
+    return res.redirect('/');
 }
