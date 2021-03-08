@@ -1,23 +1,37 @@
-<header>
-    Page Header
-    <ul>
-        <% if(locals.user){%>
-            <!-- bkc 3 ghente waste kr diye kyuki mai locals ki jgh local use kr rha tha -->
-            <li>
-                <%= user.name %>
-            </li>
+<header id="layout-header">
+    <nav>
+        <div class="mini-logo">
+            <p>
+                <a href='/'>
+                    KHAPITAR - THE SOCIAL MEDIA WEBSITE
+                </a>
+            </p>
+        </div>
 
-            <li>
-                <a href="/users/sign-out">Sign Out</a>
-            </li>
-            <%}else{%>
-                <li>
-                    <a href="/users/sign-in">Sign In</a>
-                </li>
-                <li>
-                    <a href="/users/sign-up">Sign Up</a>
-                </li>
-                <% }
-        %>
-    </ul>
+        <div class="auth-links">
+            <ul>
+                <% if (locals.user){ %>
+                    <li>
+                        <a href="/users/user-profile">
+                            <%= user.name %>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/users/sign-out">Sign Out</a>
+                    </li>
+                    <% }else{ %>
+                        <li>
+                            <a href="/users/sign-in">Sign In</a>
+                        </li>
+                        <li>
+                            <a href="/users/sign-up">Sign Up</a>
+                        </li>
+
+                        <% } %>
+            </ul>
+        </div>
+    </nav>
+
+
+
 </header>
