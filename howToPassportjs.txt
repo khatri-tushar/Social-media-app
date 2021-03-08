@@ -1,0 +1,18 @@
+installed passport lib - > installed passport local - > created a new strategy and allocated it to middleware -> 
+(done is the callback function) -> serialize user(picks out the info from the user which needs to be set in the session cookie)
+-> deserialize (picks out id from the session cookie and converting it into the user )
+-> check auth basically a function which checks if the user is authenticated
+->set authenticatedUser to access the auth user in the views
+
+
+IN index.js
+set the passport.setAuthenticatedUser so to set it every time the passport is initialized
+
+Express session 
+initialized it -> used the session to store the session data using mongo-store in db 
+
+
+IN routes.js
+created route to sign in using passport.authenticated('local'...blah blah)
+
+
