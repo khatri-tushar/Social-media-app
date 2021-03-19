@@ -5,17 +5,14 @@ const router = express.Router();
 const passport = require('passport');
 
 const userController = require('../controllers/users_controller');
-const postsController = require('../controllers/posts_controller')
 
 console.log('User Router working')
 
 router.get('/user-profile', passport.checkAuthentication, userController.profile);
 router.get('/friends', userController.friends);
-router.get('/posts', postsController.posts);
 router.get('/sign-in', userController.signIn);
 router.get('/sign-up', userController.signUp);
 
-router.post('/create', userController.create);
 router.get('/sign-out', userController.deleteSession)
 
 //creates sessions -> passport auth it -> if done than createSession , else failureRedirect 

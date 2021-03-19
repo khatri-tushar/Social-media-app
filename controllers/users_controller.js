@@ -41,7 +41,9 @@ module.exports.create = function(req, res) {
     User.findOne({ email: req.body.email }, function(err, user) {
         if (err) { console.log('error'); return }
 
+        //since user is not in the DB therefore create user
         if (!user) {
+            //schema ke according apne aap bnn jayega
             User.create(req.body, function(err, user) {
                 if (err) { console.log("error in creating user"); return; }
 
