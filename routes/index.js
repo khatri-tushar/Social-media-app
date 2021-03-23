@@ -3,7 +3,6 @@
 const express = require('express')
 const router = express.Router();
 const homeController = require('../controllers/home_controller')
-const postController = require('../controllers/posts_controller')
 
 console.log('Router Loaded')
 
@@ -16,4 +15,5 @@ router.get('/', homeController.home) //this is equivalent to below commented lin
 //requests goes to other router that's why we are using 'use' from the user router the request goes to the userController 
 router.use('/users', require('./users'))
 router.use('/posts',require('./posts'))
+router.use('/comments',require('./comments'))
 module.exports = router;
