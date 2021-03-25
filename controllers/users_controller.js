@@ -73,12 +73,13 @@ module.exports.create = function(req, res) {
 }
 
 module.exports.createSession = function(req, res) {
-
+    req.flash('success', 'Logged in Successfully ')
     return res.redirect('/')
 }
 
 
 module.exports.deleteSession = function(req, res) {
+    req.flash('success' , 'Logged out Successfully')
     req.logout();
     return res.redirect('/');
 }

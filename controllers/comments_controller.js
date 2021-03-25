@@ -14,11 +14,12 @@ module.exports.createComment = async function(req,res){
     
             post.comments.push(comment);
             post.save();
-            
+            req.flash('success', "Comment added");
+
             res.redirect('/')
         }
     }catch(err){
-        console.log("Error", err)
+        req.flash("error",err);
         return;
     }
 }
@@ -32,7 +33,10 @@ module.exports.delete = async function(req,res){
             let postId = comment.post
             
             comment.remove();
-            let post = await Post.findByIdAndUpdate(postId,{ $pull:{comment:req.params}})
+            await Post.findByIdAndUpdate(postId,{ $pull:{comment:req.params}})
+            
+            req.flash('success',"Comment Deleted");
+            
             return res.redirect('/')
         }
         else{
@@ -40,7 +44,7 @@ module.exports.delete = async function(req,res){
         }
 
     }catch(err){
-        console.log("Error", err)
+        req.flash('error',err);
         return;
     }
 }
