@@ -1,5 +1,0 @@
-{
-    let createComemnt = function(){
-        let 
-    }
-}
